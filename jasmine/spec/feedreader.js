@@ -73,7 +73,7 @@ $(function() {
 
       it('content changes', function() {
         Array.from(feed.children).forEach(function(entry, index) {
-          console.log(entry.innerText, firstFeed[index], entry.innerText === firstFeed[index]);
+          expect(entry.innerText !== firstFeed[index]).toBe(true);
         });
       });
     });
