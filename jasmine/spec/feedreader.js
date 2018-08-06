@@ -2,43 +2,43 @@ $(function() {
 
     describe('RSS Feeds', function() {
 
-        it('are defined', function() {
-            expect(allFeeds).toBeDefined();
-            expect(allFeeds.length).not.toBe(0);
-        });
+      it('are defined', function() {
+          expect(allFeeds).toBeDefined();
+          expect(allFeeds.length).not.toBe(0);
+      });
 
-       it('URL defined', function () {
-         for(let feed of allFeeds) {
-           expect(feed.url).toBeDefined();
-           expect(feed.url.length).not.toBe(0);
-         }
-       });
+      it('URL defined', function () {
+        for(let feed of allFeeds) {
+          expect(feed.url).toBeDefined();
+          expect(feed.url.length).not.toBe(0);
+        }
+      });
 
-       it('name defined', function() {
-         for(let feed of allFeeds) {
-           expect(feed.name).toBeDefined();
-           expect(feed.name.length).not.toBe(0);
-         }
-       });
+      it('name defined', function() {
+        for(let feed of allFeeds) {
+          expect(feed.name).toBeDefined();
+          expect(feed.name.length).not.toBe(0);
+        }
+      });
     });
 
 
     describe('The menu', function() {
 
-         it('is hidden', function() {
-           const body = document.querySelector('body');
-           expect(body.classList.contains('menu-hidden')).toBe(true);
-         });
+      it('is hidden', function() {
+        const body = document.querySelector('body');
+        expect(body.classList.contains('menu-hidden')).toBe(true);
+      });
 
-          it('toggles on and off', function() {
-            const body = document.querySelector('body');
-            const menu = document.querySelector('.menu-icon-link');
+      it('toggles on and off', function() {
+        const body = document.querySelector('body');
+        const menu = document.querySelector('.menu-icon-link');
 
-            menu.click();
-            expect(body.classList.contains('menu-hidden')).toBe(false);
-            menu.click();
-            expect(body.classList.contains('menu-hidden')).toBe(true);
-          });
+        menu.click();
+        expect(body.classList.contains('menu-hidden')).toBe(false);
+        menu.click();
+        expect(body.classList.contains('menu-hidden')).toBe(true);
+      });
     });
 
 
