@@ -61,9 +61,9 @@
 
       /* First test - validates min of 1 .entry element when loadFeed is done */
       it('completes work', function() {
-        const feed = document.querySelector('.feed');
+        const entry = $('.entry');
 
-        expect(feed.children.length > 0).toBe(true);
+        expect(entry.length).toBeGreaterThan(0);
       });
     });
 
