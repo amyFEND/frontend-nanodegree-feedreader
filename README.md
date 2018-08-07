@@ -27,6 +27,8 @@ Review the Feed Reader Testing [Project Rubric](https://review.udacity.com/#!/pr
 
 1. Take the JavaScript Testing [course](https://www.udacity.com/course/ud549)
 2. Download the required project assets: [here (original)](http://github.com/udacity/frontend-nanodegree-feedreader) or [here (Amy's fork)](https://github.com/amyFEND/frontend-nanodegree-feedreader).
+ - Clone repository to download all required files
+ - Open index.html file within your browser to see the web page and Jasmine testing results will show at bottom of loaded page
 3. Review the functionality of the application within your browser.
 4. Callbacks should be used to ensure that feeds are loaded before they are tested.
 5. Implement error handling for undefined variables and out-of-bound array access.
