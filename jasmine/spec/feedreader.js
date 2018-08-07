@@ -61,7 +61,7 @@
 
       /* First test - validates min of 1 .entry element when loadFeed is done */
       it('completes work', function() {
-        const entry = $('.entry');
+        const entry = $('.feed').children();
 
         expect(entry.length).toBeGreaterThan(0);
       });
@@ -75,13 +75,13 @@
 
       /* Loads two feeds to validate feeds load their respective content */
       beforeEach(function(done) {
-        const entry = $('.entry')[0];
+        const entry = $('.feed').children()[0];
         loadFeed(0);
         firstEntry = entry.innerText;
         done();
       });
       afterEach(function(done) {
-        const entry = $('.entry')[0];
+        const entry = $('.feed').children()[0];
         loadFeed(1);
         secondEntry = entry.innerText;
         done();
