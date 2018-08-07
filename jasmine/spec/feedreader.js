@@ -36,19 +36,19 @@
 
       /* First test - validates menu element is hidden */
       it('is hidden', function() {
-        const body = document.querySelector('body');
-        expect(body.classList.contains('menu-hidden')).toBe(true);
+        const body = $('body');
+        expect(body.hasClass('menu-hidden')).toBe(true);
       });
 
       /* Second test - validates menu element changes visibility on click */
       it('toggles on and off', function() {
-        const body = document.querySelector('body');
-        const menu = document.querySelector('.menu-icon-link');
+        const body = $('body');
+        const menu = $('.menu-icon-link');
 
         menu.click();
-        expect(body.classList.contains('menu-hidden')).toBe(false);
+        expect(body.hasClass('menu-hidden')).toBe(false);
         menu.click();
-        expect(body.classList.contains('menu-hidden')).toBe(true);
+        expect(body.hasClass('menu-hidden')).toBe(true);
       });
     });
 
