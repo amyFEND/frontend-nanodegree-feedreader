@@ -70,23 +70,27 @@
 
     /* FOURTH TEST SUITE - New Feed Selection */
     describe('New Feed Selection', function() {
-      const feed = document.querySelector('.feed');
-      const firstFeed = [];
+      let firstEntry;
+      let secondEntry;
 
       /* Loads two feeds to validate feeds load their respective content */
       beforeEach(function(done) {
+        const entry = $('.entry')[0];
         loadFeed(0);
-        Array.from(feed.children).forEach(function(entry) {
-          firstFeed.push(entry.innerText);
-        });
-        loadFeed(1, done);
+        firstEntry = entry.innerText;
+        done();
+      });
+      afterEach(function(done) {
+        const entry = $('.entry')[0];
+        loadFeed(1);
+        secondEntry = entry.innerText;
+        done();
       });
 
       /* First test - validates new feed is loaded with correct content */
-      it('content changes', function() {
-        Array.from(feed.children).forEach(function(entry, index) {
-          expect(entry.innerText !== firstFeed[index]).toBe(true);
-        });
+      it('content changes', function(done) {
+        expect(firstEntry).not.toEqual(secondEntry);
+        done();
       });
     });
 }());
