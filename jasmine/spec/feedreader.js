@@ -1,12 +1,19 @@
-$(function() {
+/* $() function created to verify only tests run
+ * after DOM is ready, since some of these tests
+ * may require DOM elements.
+ */
+ $(function() {
 
+    /* FIRST TEST SUITE - RSS feeds definitions */
     describe('RSS Feeds', function() {
 
+      /* First test - validates allFeeds variable is defined and not empty. */
       it('are defined', function() {
           expect(allFeeds).toBeDefined();
           expect(allFeeds.length).not.toBe(0);
       });
 
+      /* Second test - validates allFeeds URL is defined and not empty. */
       it('URL defined', function () {
         for(let feed of allFeeds) {
           expect(feed.url).toBeDefined();
@@ -14,6 +21,7 @@ $(function() {
         }
       });
 
+      /* Third test - validates allFeeds name is defined and not empty. */
       it('name defined', function() {
         for(let feed of allFeeds) {
           expect(feed.name).toBeDefined();
@@ -23,13 +31,16 @@ $(function() {
     });
 
 
+    /* SECOND TEST SUITE - the menu element */
     describe('The menu', function() {
 
+      /* First test - validates menu element is hidden */
       it('is hidden', function() {
         const body = document.querySelector('body');
         expect(body.classList.contains('menu-hidden')).toBe(true);
       });
 
+      /* Second test - validates menu element changes visibility on click */
       it('toggles on and off', function() {
         const body = document.querySelector('body');
         const menu = document.querySelector('.menu-icon-link');
@@ -42,11 +53,13 @@ $(function() {
     });
 
 
+    /* THIRD TEST SUITE - Initial Entries */
     describe('Initial Entries', function() {
       beforeEach(function(done) {
         loadFeed(0, done);
       });
 
+      /* First test - validates min of 1 .entry element when loadFeed is done */
       it('completes work', function() {
         const feed = document.querySelector('.feed');
 
@@ -55,10 +68,12 @@ $(function() {
     });
 
 
+    /* FOURTH TEST SUITE - New Feed Selection */
     describe('New Feed Selection', function() {
       const feed = document.querySelector('.feed');
       const firstFeed = [];
 
+      /* Loads two feeds to validate feeds load their respective content */
       beforeEach(function(done) {
         loadFeed(0);
         Array.from(feed.children).forEach(function(entry) {
@@ -67,6 +82,7 @@ $(function() {
         loadFeed(1, done);
       });
 
+      /* First test - validates new feed is loaded with correct content */
       it('content changes', function() {
         Array.from(feed.children).forEach(function(entry, index) {
           expect(entry.innerText !== firstFeed[index]).toBe(true);
