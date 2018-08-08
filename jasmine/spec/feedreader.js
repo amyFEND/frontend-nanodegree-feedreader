@@ -73,24 +73,23 @@
       let firstEntry;
       let secondEntry;
 
-      /* Loads two feeds to validate feeds load their respective content */
+      /* Loads first feed, stores entry of first feed,
+       * loads second feed, then validates entries of both feeds
+       * load their respective content and are different from each other. */
       beforeEach(function(done) {
-        const entry = $('.feed').children()[0];
-        loadFeed(0);
-        firstEntry = entry.innerText;
-        done();
-      });
-      afterEach(function(done) {
-        const entry = $('.feed').children()[0];
-        loadFeed(1);
-        secondEntry = entry.innerText;
-        done();
+
+        loadFeed(0, function() {
+          firstEntry = $('.feed').html();
+          loadFeed(1, function() {
+            secondEntry = $('.feed').html();
+            done();
+          });
+        });
       });
 
       /* First test - validates new feed is loaded with correct content */
-      it('content changes', function(done) {
+      it('content changes', function() {
         expect(firstEntry).not.toEqual(secondEntry);
-        done();
       });
     });
 }());
